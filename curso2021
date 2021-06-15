@@ -84,7 +84,7 @@ systemctl status zabbix-agent | grep Active
 systemctl status grafana-server | grep Active
 
 cd /usr/share/snmp/mibs
-git clone https://github.com/arturbrasil/vendors.git
+git clone https://github.com/victorlucaszx/grupofavenizabbix.git
 apt-get install snmpd
 mkdir -p $HOME/.snmp
 
@@ -96,7 +96,7 @@ mkdir -p $HOME/.snmp
 
 clear
 cd /tmp
-wget https://raw.githubusercontent.com/arturbrasil/curriculo/gh-pages/zabbix-datasource
+wget https://raw.githubusercontent.com/victorlucaszx/grupofavenizabbix/master/zabbix-datasource
 
 for i in /tmp/zabbix-datasource ; do \
     curl -X "POST" "http://127.0.0.1:3000/api/datasources" \
@@ -110,7 +110,7 @@ grafana_cred="admin:admin"
 grafana_datasource="zabbix"
 apt install parallel jq curl httpie nmap ncat dnsutils unzip snmp-mibs-downloader htop speedtest-cli iotop nmap silversearcher-ag ngrep -y 
 snap install gotop
-wget https://raw.githubusercontent.com/arturbrasil/curriculo/gh-pages/dash-redes-sociais.json
+wget https://raw.githubusercontent.com/victorlucaszx/grupofavenizabbix/master/dash-redes-sociais.json
 
 cat dash-redes-sociais.json | jq '. * {overwrite: true, dashboard: {id: null}}' | curl -s -k -u "$grafana_cred" -XPOST -H "Accept: application/json" \
     -H "Content-Type: application/json" \
