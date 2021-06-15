@@ -1,6 +1,7 @@
 #!/bin/bash
 apt update
 apt install screen figlet toilet cowsay -y
+apt install cowsay
 
 figlet -c Grupo Faveni
 
